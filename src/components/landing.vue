@@ -97,9 +97,11 @@
 
           <!-- Book Button -->
           <div class="book-container">
-            <div class="book-btn transition">
-              <p class="book-txt">BOOK NOW</p>
-            </div>
+            <router-link :to="{ name: 'book' }" style="color: white">
+              <div class="book-btn transition">
+                <p class="book-txt">BOOK NOW</p>
+              </div>
+            </router-link>
           </div>
         </div>
       </div>

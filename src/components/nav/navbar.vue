@@ -12,7 +12,7 @@
         </div>
 
         <!-- Home Button -->
-        <div class="nav-option-container alignMiddle">
+        <div class="nav-option-container alignMiddle" id="home-btn">
           <div class="icon-container-align">
             <router-link :to="{ name: 'landing' }" class="menu-link">
               <div class="icon-container transition alignMiddle">
@@ -25,7 +25,7 @@
         </div>
 
         <!-- Book Button -->
-        <div class="nav-option-container alignMiddle">
+        <div class="nav-option-container alignMiddle" id="book-btn">
           <div class="icon-container-align">
             <router-link :to="{ name: 'book' }" class="menu-link">
               <div class="icon-container transition alignMiddle">
@@ -38,7 +38,7 @@
         </div>
 
         <!-- Track & Kart Button -->
-        <div class="nav-option-container alignMiddle">
+        <div class="nav-option-container alignMiddle" id="track-btn">
           <div class="icon-container-align">
             <router-link :to="{ name: 'track' }" class="menu-link">
               <div class="icon-container transition alignMiddle">
@@ -51,7 +51,7 @@
         </div>
 
         <!-- About Button -->
-        <div class="nav-option-container alignMiddle">
+        <div class="nav-option-container alignMiddle" id="about-btn">
           <div class="icon-container-align">
             <router-link :to="{ name: 'landing' }" class="menu-link">
               <div class="icon-container transition alignMiddle">
@@ -64,7 +64,7 @@
         </div>
 
         <!-- FAQs Button -->
-        <div class="nav-option-container alignMiddle">
+        <div class="nav-option-container alignMiddle" id="faqs-btn">
           <div class="icon-container-align">
             <router-link :to="{ name: 'landing' }" class="menu-link">
               <div class="icon-container transition alignMiddle">
@@ -77,7 +77,7 @@
         </div>
 
         <!-- Auth Button -->
-        <div class="nav-option-container alignMiddle">
+        <div class="nav-option-container alignMiddle" id="auth-btn">
           <div class="icon-container-align">
             <router-link :to="{ name: 'landing' }" class="menu-link">
               <div class="icon-container transition alignMiddle">
@@ -101,12 +101,13 @@ export default {
 
 <style scoped>
 .nav-container {
-  position: absolute;
-  top: 0;
+  position: fixed;
   left: 0;
 
   width: 125px;
   height: 100vh;
+
+  z-index: 100;
 }
 
 .navbar {
@@ -187,5 +188,102 @@ export default {
 
 .router-link-exact-active {
   color: white;
+}
+
+/*--| RESPONSIVE CSS |--*/
+@media screen and (max-width: 590px) {
+  .nav-container {
+    position: fixed;
+    bottom: 0;
+
+    width: 100vw;
+    height: 100px;
+  }
+
+  .navbar {
+    width: 95%;
+    height: 70px;
+    margin: auto;
+  }
+
+  /* Nav Icons & Logo */
+  .logo-container {
+    width: 20%;
+    height: 70px;
+    float: left;
+    margin-block-end: 0;
+
+    /* Custom Shape */
+    clip-path: polygon(0% 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+  }
+
+  .nav-option-container {
+    width: calc(80% / 4);
+    height: 70px;
+    float: left;
+    margin-block-start: 0;
+    margin-block-end: 0;
+  }
+
+  #about-btn {
+    display: none;
+  }
+
+  #faqs-btn {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  /* Nav Icons & Logo */
+  .logo-container {
+    width: 25%;
+    height: 70px;
+    float: left;
+    margin-block-end: 0;
+
+    /* Custom Shape */
+    clip-path: polygon(0% 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+  }
+
+  .nav-option-container {
+    width: calc(75% / 4);
+    height: 70px;
+    float: left;
+    margin-block-start: 0;
+    margin-block-end: 0;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .navbar {
+    width: 95%;
+    height: 60px;
+    margin: auto;
+  }
+
+  /* Nav Icons & Logo */
+  .logo-container {
+    display: none;
+  }
+
+  .nav-option-container {
+    width: calc(100% / 4);
+    height: 60px;
+    float: left;
+    margin-block-start: 0;
+    margin-block-end: 0;
+  }
+
+  .icon-container {
+    width: 45px;
+    height: 45px;
+  }
+
+  .icon-container:hover {
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+  }
 }
 </style>
