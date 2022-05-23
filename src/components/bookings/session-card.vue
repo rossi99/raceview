@@ -235,6 +235,7 @@ export default {
     sessionType: String,
     sessionPrice: String,
     sessionLink: String,
+    sessionAvailable: String,
   },
 };
 </script>
@@ -250,11 +251,6 @@ export default {
   margin: auto;
   background: #262626;
   border-radius: 10px;
-  opacity: 0.5;
-}
-
-.session-card:hover {
-  opacity: 1;
 }
 
 .card-content {
@@ -320,23 +316,21 @@ export default {
 
 .session-description-container {
   width: 100%;
-  height: 100px;
 
   border: 1px solid #262626;
   border-radius: 10px;
   background: #1f1f1f;
 
-  overflow: scroll;
   margin-block-end: 30px;
 }
 
 .description-text-container {
   width: calc(100% - 40px);
-  padding-inline-start: 20px;
-  padding-inline-end: 20px;
+  padding-inline-start: 10px;
+  padding-inline-end: 10px;
 
-  padding-block-start: 15px;
-  padding-block-end: 15px;
+  padding-block-start: 10px;
+  padding-block-end: 10px;
   margin: auto;
 }
 
@@ -491,6 +485,13 @@ export default {
     padding-block-start: 10px;
     padding-block-end: 10px;
     margin: auto;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .session-description-container {
+    height: 100px;
+    overflow: scroll;
   }
 }
 
