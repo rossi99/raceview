@@ -379,22 +379,22 @@ export default {
   width: 60%;
   height: 45px;
   float: right;
-  color: white;
-  border: 1px solid white;
+  background: rgb(25,238,2);
+  background: linear-gradient(45deg, rgba(25,238,2,1) 7%, rgba(224,229,0,1) 100%);
+  color: #1b1b1b;
   border-radius: 10px;
+  letter-spacing: 1px;
 }
 
 .book-btn:hover {
   cursor: pointer;
-  background: white;
-  color: #1b1b1b;
+  letter-spacing: 3px;
 }
 
 .book-btn-text {
   width: 100%;
   text-align: center;
   font-size: 18px;
-  letter-spacing: 3px;
   font-family: 'Bebas Neue', cursive;
 }
 

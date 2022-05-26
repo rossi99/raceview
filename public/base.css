@@ -93,7 +93,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 
 .transition {
     /* Apply to buttons and elements that change state */
-    transition: all 0.2s;
+    transition: all 0.2s ease-in-out;
 }
 
 .icon-space-left {

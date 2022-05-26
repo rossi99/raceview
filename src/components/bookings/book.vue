@@ -222,7 +222,6 @@ export default {
 </script>
 
 <style scoped>
-
 .content {
   width: calc(100% - 140px);
   margin-inline-start: 140px;

@@ -99,7 +99,7 @@
           <div class="book-container">
             <router-link :to="{ name: 'book' }" style="color: white">
               <div class="book-btn transition">
-                <p class="book-txt">BOOK NOW</p>
+                <p class="book-txt">EXPLORE</p>
               </div>
             </router-link>
           </div>
@@ -205,18 +205,20 @@ export default {
 /* Video */
 .video-container {
   width: 100%;
-  height: 100vh;
+  height: 100%;
 
   position: absolute;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
   z-index: 0;
   overflow: hidden;
 }
 
 .background-video {
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   object-fit: cover;
   position: fixed;
   left: 0;
@@ -231,7 +233,7 @@ export default {
   display: none;
 
   width: 100%;
-  height: 100vh;
+  height: 100%;
 
   position: absolute;
   top: 0;
@@ -385,7 +387,11 @@ export default {
 .book-btn {
   margin: auto;
   width: 200px;
-  border: 1px solid white;
+  background: rgb(25,238,2);
+  background: linear-gradient(45deg, rgba(25,238,2,1) 7%, rgba(224,229,0,1) 100%);
+  color: #1b1b1b;
+  font-size: 18px;
+  font-family: 'Bebas Neue', cursive;
   border-radius: 10px;
 }
 
@@ -395,8 +401,7 @@ export default {
 
 .book-btn:hover {
   cursor: pointer;
-  background: white;
-  color: black;
+  letter-spacing: 3px;
 }
 
 /* Social */
@@ -842,21 +847,26 @@ export default {
 }
 
 @media screen and (max-width: 384px) {
+  .title-container {
+    min-height: -webkit-fill-available;
+    height: -webkit-fill-available;
+  }
+
   .menu-icon-container {
-    margin-block-start: 7px;
+    margin-block-start: 10px;
     margin-inline-start: 7px;
   }
 
   .menu-content-container {
-    width: calc(100vw - 50px);
+    width: calc(80vw - 55px);
     top: 0;
-    left: 45px;
+    left: 50px;
   }
 
   .menu-option-row {
-    height: 60px;
+    height: 50px;
     color: rgb(255, 255, 255);
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .menu-icon-txt {
@@ -864,13 +874,13 @@ export default {
   }
 
   .landing-logo {
-    width: 220px;
+    width: 175px;
     margin-block-end: 0;
   }
 
   .tagline-container {
-    font-size: 22px;
-    letter-spacing: 3px;
+    font-size: 20px;
+    letter-spacing: 2px;
   }
 
   .book-btn {
@@ -893,7 +903,7 @@ export default {
   }
 
   .social-btn-txt {
-    font-size: 22px;
+    font-size: 20px;
   }
 
   .legal-container {
@@ -914,20 +924,20 @@ export default {
 
 @media screen and (max-width: 375px) {
   .menu-icon-container {
-    margin-block-start: 7px;
+    margin-block-start: 10px;
     margin-inline-start: 7px;
   }
 
   .menu-content-container {
-    width: calc(100vw - 50px);
+    width: calc(80vw - 55px);
     top: 0;
-    left: 45px;
+    left: 50px;
   }
 
   .menu-option-row {
-    height: 60px;
+    height: 50px;
     color: rgb(255, 255, 255);
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .menu-icon-txt {
@@ -935,13 +945,13 @@ export default {
   }
 
   .landing-logo {
-    width: 220px;
+    width: 175px;
     margin-block-end: 0;
   }
 
   .tagline-container {
-    font-size: 22px;
-    letter-spacing: 3px;
+    font-size: 20px;
+    letter-spacing: 2px;
   }
 
   .book-btn {
@@ -964,7 +974,7 @@ export default {
   }
 
   .social-btn-txt {
-    font-size: 22px;
+    font-size: 20px;
   }
 
   .legal-container {
@@ -985,20 +995,20 @@ export default {
 
 @media screen and (max-width: 360px) {
   .menu-icon-container {
-    margin-block-start: 7px;
+    margin-block-start: 10px;
     margin-inline-start: 7px;
   }
 
   .menu-content-container {
-    width: calc(100vw - 50px);
+    width: calc(80vw - 55px);
     top: 0;
-    left: 45px;
+    left: 50px;
   }
 
   .menu-option-row {
-    height: 60px;
+    height: 50px;
     color: rgb(255, 255, 255);
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .landing-logo {
@@ -1053,20 +1063,20 @@ export default {
 
 @media screen and (max-width: 320px) {
   .menu-icon-container {
-    margin-block-start: 5px;
-    margin-inline-start: 5px;
+    margin-block-start: 10px;
+    margin-inline-start: 7px;
   }
 
   .menu-content-container {
-    width: calc(100vw - 50px);
+    width: calc(80vw - 55px);
     top: 0;
-    left: 45px;
+    left: 50px;
   }
 
   .menu-option-row {
-    height: 60px;
+    height: 50px;
     color: rgb(255, 255, 255);
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .landing-logo {
