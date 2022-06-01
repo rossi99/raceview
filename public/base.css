@@ -47,6 +47,10 @@ table, caption, tbody, tfoot, thead, tr, th, td {
     background: transparent;
 }
 
+video {
+    padding: 0 !important;
+}
+
 .app {
     width: 100%;
     height: 100vh;
@@ -102,4 +106,40 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 
 .icon-space-right {
     margin-inline-end: 10px;
+}
+
+#small-screen {
+    display: none;
+}
+
+.sml-content {
+    width: calc(100% - 30px);
+    margin: auto;
+    margin-block-start: 30px;
+}
+
+.sml-logo-container {
+    width: 100%;
+    text-align: center;
+    margin-block-end: 15px;
+}
+
+.sml-logo {
+    width: 100%;
+    max-width: 175px;
+}
+
+.sml-text {
+    width: 100%;
+    text-align: center;
+}
+
+@media screen and (max-width: 320px) {
+    #app {
+        display: none;
+    }
+
+    #small-screen {
+        display: block;
+    }
 }

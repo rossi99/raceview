@@ -5,7 +5,7 @@
       <!-- Video -->
       <div class="video-container">
         <video class="background-video" id="background-video" playsinline autoplay muted loop>
-          <source src="https://raceviewkarting.com/wp-content/uploads/2021/09/Time-Trials-.mp4" type="video/mp4">
+          <source :src='require("@/assets/video/welcome/welcome-vid.mp4")' type="video/mp4">
         </video>
       </div>
 
@@ -176,6 +176,7 @@ export default {
     let menu = $('.menu-container');
     let socials = $('.social-container');
     let legal = $('.legal-container');
+    let video = $('.background-video')
 
     // Functions
     function showOverlay() {
@@ -185,8 +186,21 @@ export default {
       legal.delay(3000).fadeIn(1000);
     }
 
+    function hideAll() {
+      overlay.hide()
+      menu.hide()
+      socials.hide()
+      legal.hide()
+    }
+
+    function playVid() {
+      video[0].play();
+    }
+
     // Actions
     $(document).ready(function () {
+      playVid();
+      hideAll();
       showOverlay();
     });
   }
@@ -848,8 +862,8 @@ export default {
 
 @media screen and (max-width: 384px) {
   .title-container {
-    min-height: -webkit-fill-available;
     height: -webkit-fill-available;
+    min-height: -webkit-fill-available;
   }
 
   .menu-icon-container {

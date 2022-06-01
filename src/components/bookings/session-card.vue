@@ -490,7 +490,7 @@ export default {
 
 @media screen and (max-width: 450px) {
   .session-description-container {
-    height: 100px;
+    height: 150px;
     overflow: scroll;
   }
 }
