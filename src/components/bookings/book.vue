@@ -11,9 +11,8 @@
       </div>
 
       <div class="page-intro">
-        Raceview offers a variety of different session to suit everyone. From speed trials, where you compete for the
-        fastest lap to Sprints, where the first to cross line wins. Before booking, please ensure that all drivers
-        fit the criteria to race. For more information on this or bookings, please see the
+        Raceview offers a variety of different session to suit everyone, from speed trials to championships. Before
+        booking, please ensure that all drivers fit the criteria to race. For more information on this or bookings, please see the
         <router-link :to="{ name: 'landing' }" class="menu-link" style="text-decoration: underline">FAQ page</router-link>
         or get in touch using the <a href="tel:028 2565 1000" class="menu-link" style="text-decoration: underline">phone</a> or
         <a href="mailto:info@raceviewkarting.com" class="menu-link" style="text-decoration: underline">email</a>.
@@ -45,7 +44,8 @@
               sessionType="time"
               sessionPrice="£22.00"
               sessionLink="https://flow.alphatiming.co.uk/raceviewkarting/book/activity/7EJ6AW-_ukmkEWgIptaZPAAC/availability"
-              sessionAvailable="yes">
+              :sessionAvailable="true"
+              :isLimitedOffer="false">
           </session-card>
 
           <!-- Speed Trial Silver -->
@@ -64,7 +64,8 @@
               sessionType="time"
               sessionPrice="£29.00"
               sessionLink="https://flow.alphatiming.co.uk/raceviewkarting/book/activity/DaV6AXPU9kqSU5eRyKCCTQF9/availability"
-              sessionAvailable="yes">
+              :sessionAvailable="true"
+              :isLimitedOffer="true">
           </session-card>
 
           <!-- Speed Trial Gold -->
@@ -82,7 +83,9 @@
 
               sessionType="time"
               sessionPrice="£38.50"
-              sessionLink="https://flow.alphatiming.co.uk/raceviewkarting/book/activity/5o96AWdBSUGr6LtLeIpwmw93/availability">
+              sessionLink="https://flow.alphatiming.co.uk/raceviewkarting/book/activity/5o96AWdBSUGr6LtLeIpwmw93/availability"
+              :sessionAvailable="true"
+              :isLimitedOffer="false">
           </session-card>
         </div>
 
@@ -109,7 +112,8 @@
               sessionType="race"
               sessionPrice="£22.00"
               sessionLink="https://flow.alphatiming.co.uk/raceviewkarting/book/activity/QlN6ASRBJU2NjpTDbdgeKQD8/availability"
-              sessionAvailable="yes">
+              :sessionAvailable="true"
+              :isLimitedOffer="false">
           </session-card>
 
           <!-- Sprint 60 -->
@@ -129,7 +133,8 @@
               sessionType="race"
               sessionPrice="£38.50"
               sessionLink="https://flow.alphatiming.co.uk/raceviewkarting/book/activity/du97AYhFgECRX05w-A5miA40/availability"
-              sessionAvailable="yes">
+              :sessionAvailable="true"
+              :isLimitedOffer="false">
           </session-card>
         </div>
 
@@ -158,7 +163,8 @@
               sessionType="race"
               sessionPrice="£38.50"
               sessionLink="https://flow.alphatiming.co.uk/raceviewkarting/book/activity/QlN6ASRBJU2NjpTDbdgeKQD8/availability"
-              sessionAvailable="yes">
+              :sessionAvailable="true"
+              :isLimitedOffer="false">
           </session-card>
 
           <!-- Championship -->
@@ -177,7 +183,8 @@
               sessionType="race"
               sessionPrice="£38.50"
               sessionLink="https://flow.alphatiming.co.uk/raceviewkarting/book/activity/du97AYhFgECRX05w-A5miA40/availability"
-              sessionAvailable="no">
+              :sessionAvailable="false"
+              :isLimitedOffer="false">
           </session-card>
         </div>
 
@@ -205,7 +212,8 @@
               sessionType="time"
               sessionPrice="£49.50"
               sessionLink="https://flow.alphatiming.co.uk/raceviewkarting/book/activity/zRh8AYFthUGAMEo4FPFDcA02/availability"
-              sessionAvailable="yes">
+              :sessionAvailable="true"
+              :isLimitedOffer="false">
           </session-card>
         </div>
       </div>
@@ -258,6 +266,7 @@ export default {
   font-size: 25px;
   letter-spacing: 5px;
   font-family: 'Bebas Neue', cursive;
+  margin-block-end: 25px;
 }
 
 .session-container {

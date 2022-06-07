@@ -99,7 +99,7 @@
           <div class="book-container">
             <router-link :to="{ name: 'book' }" style="color: white">
               <div class="book-btn transition">
-                <p class="book-txt">EXPLORE</p>
+                <p class="book-txt">Book a session</p>
               </div>
             </router-link>
           </div>

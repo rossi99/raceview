@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="session-card-container">
-      <div class="session-card transition">
+      <div class="session-card transition" :class="{ 'border-gradient': isLimitedOffer }">
         <div class="card-content">
           <!-- Title -->
           <div class="session-title alignMiddle">
@@ -92,19 +92,17 @@
             <!-- Session Type -->
             <div class="session-details-slot alignMiddle">
               <div class="session-detail-align">
-                <div class="detail-title">
-                  Type
-                </div>
+                <div class="detail-title">Type</div>
 
                 <div class="detail-value">
                   <div v-if="sessionType === 'time'">
                     <span class="fa-solid fa-clock icon-space-right"></span>
-                    <span>Time Trial</span>
+                    <span class="time-type"></span>
                   </div>
 
                   <div v-if="sessionType === 'race'">
                     <span class="fa-solid fa-flag-checkered icon-space-right"></span>
-                    <span>Race</span>
+                    <span class="race-type"></span>
                   </div>
                 </div>
               </div>
@@ -113,9 +111,7 @@
             <!-- Session People -->
             <div class="session-details-slot alignMiddle">
               <div class="session-detail-align">
-                <div class="detail-title">
-                  Group
-                </div>
+                <div class="detail-title">Group</div>
 
                 <div class="detail-value">
                   <span class="fa-solid fa-person icon-space-right"></span>
@@ -127,9 +123,7 @@
             <!-- Session Price -->
             <div class="session-details-slot alignMiddle">
               <div class="session-detail-align">
-                <div class="detail-title">
-                  Price
-                </div>
+                <div class="detail-title">Price</div>
 
                 <div class="detail-value">
                   {{ sessionPrice }} <span class="pp-price"></span>
@@ -140,13 +134,21 @@
             <!-- Session Book Btn -->
             <div class="session-book-slot alignMiddle">
               <div class="session-book-align">
-                <a :href="sessionLink">
-                  <div class="book-btn alignMiddle transition">
-                    <div class="book-btn-text">
-                      Book Now
+                <!-- If session is available -->
+                <div v-if="sessionAvailable">
+                  <a :href="sessionLink">
+                    <div class="book-btn alignMiddle transition">
+                      <div class="book-btn-text">Book Now</div>
                     </div>
+                  </a>
+                </div>
+
+                <!-- If session is not available -->
+                <div v-if="!sessionAvailable">
+                  <div class="disabled-book-btn alignMiddle transition">
+                    <div class="book-btn-text">Not Available</div>
                   </div>
-                </a>
+                </div>
               </div>
             </div>
 
@@ -192,7 +194,7 @@
                 <tr class="table-row">
                   <td class="table-title">
                     <div class="table-detail-title">
-                      Price:
+                      Swag:
                     </div>
                   </td>
                   <td class="table-value">
@@ -205,13 +207,25 @@
             <!-- Session Book Btn -->
             <div class="session-book-slot alignMiddle">
               <div class="session-book-align">
-                <a :href="sessionLink">
-                  <div class="book-btn alignMiddle transition">
+                <!-- If session is available -->
+                <div v-if="sessionAvailable">
+                  <a :href="sessionLink">
+                    <div class="book-btn alignMiddle transition">
+                      <div class="book-btn-text">
+                        Book Now
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <!-- If session is not available -->
+                <div v-if="!sessionAvailable">
+                  <div class="disabled-book-btn alignMiddle transition">
                     <div class="book-btn-text">
-                      Book Now
+                      Not Available
                     </div>
                   </div>
-                </a>
+                </div>
               </div>
             </div>
 
@@ -219,6 +233,16 @@
           </div>
 
           <div class="clearFix"></div>
+        </div>
+      </div>
+
+      <div class="limited-container" :class="{ 'show-limited': isLimitedOffer }">
+        <div class="limited-content alignMiddle">
+          <div class="limited-align">
+            <vue-countdown :time="7 * 24 * 60 * 60 * 1000" v-slot="{ days }">
+              Limited Offer | {{ days }} day(s) remaining
+            </vue-countdown>
+          </div>
         </div>
       </div>
     </div>
@@ -235,7 +259,8 @@ export default {
     sessionType: String,
     sessionPrice: String,
     sessionLink: String,
-    sessionAvailable: String,
+    sessionAvailable: Boolean,
+    isLimitedOffer: Boolean,
   },
 };
 </script>
@@ -243,7 +268,8 @@ export default {
 <style scoped>
 .session-card-container {
   width: 100%;
-  margin-block-end: 40px;
+  margin-block-end: 80px;
+  position: relative;
 }
 
 .session-card {
@@ -265,6 +291,8 @@ export default {
   font-size: 20px;
   letter-spacing: 3px;
   font-family: 'Bebas Neue', cursive;
+
+  margin-block-start: 15px;
 }
 
 .title-align {
@@ -361,6 +389,14 @@ export default {
   width: 100%;
 }
 
+.time-type::before {
+  content: "Time Trial";
+}
+
+.race-type::before {
+  content: "Race";
+}
+
 .pp-price::before {
   content: "per person";
 }
@@ -398,6 +434,20 @@ export default {
   font-family: 'Bebas Neue', cursive;
 }
 
+.disabled-book-btn {
+  width: 60%;
+  height: 45px;
+  float: right;
+  background: #686868;
+  color: #1b1b1b;
+  border-radius: 10px;
+  letter-spacing: 1px;
+}
+
+.disabled-book-btn:hover {
+  cursor: not-allowed;
+}
+
 /* Small Screen Booking Details */
 .small-session-detail-container {
   /* Hide on Big Screens */
@@ -433,15 +483,79 @@ export default {
   width: 50%;
 }
 
+/* Limited Offer Design */
+.border-gradient {
+  border: 5px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(45deg, rgba(25,238,2,1) 7%, rgba(224,229,0,1) 100%);
+}
+
+.limited-container {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.limited-content {
+  width: 80%;
+  max-width: 400px;
+  height: 40px;
+  margin: auto;
+  background: rgb(25,238,2);
+  background: linear-gradient(45deg, rgba(25,238,2,1) 7%, rgba(224,229,0,1) 100%);
+  border-radius: 5px;
+  color: #1b1b1b;
+}
+
+.limited-align {
+  width: 100%;
+  text-align: center;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 17px;
+}
+
+.show-limited {
+  display: block !important;
+}
+
 /*--| RESPONSIVE CSS |--*/
-@media screen and (max-width: 810px) {
+@media screen and (max-width: 980px) {
+  .disabled-book-btn {
+    width: 80%;
+  }
+
+  .book-btn {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 845px) {
   .pp-price::before {
     content: "pp";
   }
 
+  .time-type::before {
+    content: "Timed";
+  }
+}
+
+@media screen and (max-width: 810px) {
   .book-btn {
     width: 100%;
     height: 40px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .disabled-book-btn {
+    width: 95%;
+  }
+
+  .book-btn {
+    width: 95%;
   }
 }
 
@@ -469,6 +583,13 @@ export default {
   }
 
   .book-btn {
+    width: 50%;
+    height: 40px;
+    float: none;
+    margin: auto;
+  }
+
+  .disabled-book-btn {
     width: 50%;
     height: 40px;
     float: none;
