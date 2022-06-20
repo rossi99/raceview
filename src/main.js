@@ -3,6 +3,8 @@ import { createApp } from 'vue';
 import App from './index.vue';
 import router from '@/routes';
 import jQuery from 'jquery';
+import VueCarousel from 'vue-carousel';
+import VueCountdown from '@chenfengyuan/vue-countdown';
 
 // Third-party imports (Not Vue Packages)
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -11,7 +13,6 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import { dom } from "@fortawesome/fontawesome-svg-core";
-import VueCountdown from '@chenfengyuan/vue-countdown';
 
 // Component imports
 import index from "@/index";
@@ -34,5 +35,5 @@ dom.watch();
 window.$ = jQuery;
 
 app
-    .use( router )
+    .use( router, VueCarousel )
     .mount('#app');

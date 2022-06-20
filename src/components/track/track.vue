@@ -22,20 +22,25 @@
         <!-- Kart -->
         <kart></kart>
 
-        <!-- Track & Times Container -->
-        <div class="track-container">
-          <div class="track-section">
-            <!-- Track Heading -->
-            <div class="subtitle-container">
-              <div class="subtitle">
-                Our Indoor Track
-              </div>
-            </div>
-
-            <!-- Track -->
-            <lap></lap>
+        <!-- Track Heading -->
+        <div class="subtitle-container">
+          <div class="subtitle">
+            See our Tracks
           </div>
         </div>
+
+        <!-- Track -->
+        <tracks></tracks>
+
+        <!-- Times Heading -->
+        <div class="subtitle-container">
+          <div class="subtitle">
+            Our Leaderboard
+          </div>
+        </div>
+
+        <!-- Times -->
+        <times></times>
       </div>
     </div>
   </div>
@@ -44,13 +49,15 @@
 <script>
 import Navbar from "@/components/nav/navbar";
 import Kart from "@/components/track/kart";
-import Lap from "@/components/track/lap";
+import Tracks from "@/components/track/carousel/tracks";
+import Times from "@/components/track/leaderboard";
 
 export default {
   components: {
     Navbar,
     Kart,
-    Lap,
+    Tracks,
+    Times,
   },
 }
 </script>
